@@ -31,12 +31,12 @@ export default function Intro(props) {
         Start quiz
       </button>
       {/* {!props.loading ? (
-        <div></div>
-      ) : (
-        <div className="spinner">
-          <p>Loading</p>
-        </div>
-      )} */}
+<div></div>
+) : (
+<div className="spinner">
+<p>Loading</p>
+</div>
+)} */}
     </div>
   );
 }

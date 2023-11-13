@@ -7,6 +7,8 @@ import Footer from "../src/components/footer";
 import Intro from "../src/components/intro";
 import { nanoid } from "nanoid";
 
+import { fetchData } from "./utilities";
+
 function App() {
   const [gameOn, setGameOn] = useState(false);
   const [data, setData] = useState([]);
@@ -20,6 +22,7 @@ function App() {
   const [difficulty, setDifficulty] = useState("easy");
   const gameIsOn = gameOn ? true : false;
   const [loading, setLoading] = useState(false);
+  const [markedAnswer, setMarkedAnswer] = useState(false);
 
   useEffect(() => {
     if (gameOn) {
@@ -29,12 +32,13 @@ function App() {
         setLoading(false);
       }, 2000);
       setTimeout(() => {
-        fetchData();
+        fetchQuizData(); // Rename the function to avoid naming conflict
       }, 2000);
     }
   }, [gameIsOn]);
 
-  function fetchData() {
+  function fetchQuizData() {
+    // Rename this function
     fetch(
       `https://opentdb.com/api.php?amount=5&difficulty=${difficulty}&type=multiple`
     )

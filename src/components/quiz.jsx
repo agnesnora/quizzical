@@ -1,23 +1,48 @@
 import { decode } from "html-entities";
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
+import { fetchData, shuffle } from "../utilities";
 
 export default function Quiz(props) {
-  // const correctStyle = {
-  //   backgroundColor: "#94D7A2",
-  // };
+  const [gameOn, setGameOn] = useState(false);
+  const [quizData, setQuizData] = useState([]);
+  const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // const incorrectStyle = {
-  //   backgroundColor: "#F8BCBC",
-  // };
+  useEffect(() => {
+    async function loadQuiz() {
+      setLoading(true);
+      try {
+        const data = await fetchData();
 
-  // const correctAnswer = props.selected.map((item) =>
-  //   item.allAnswers.map((answer) => answer.isCorrect)
-  // );
+        setQuizData(
+          data.map((item) => ({
+            ...item,
+            allAnswers: shuffle(
+              [...item.incorrect_answers, item.correct_answer].map(
+                (answer) => ({
+                  answer: answer,
+                  answerId: nanoid(),
+                  isSelected: false,
+                  isCorrect: false,
+                  correctAnswer: item.correct_answer,
+                  score: 0,
+                })
+              )
+            ),
+            questionId: nanoid(),
+          }))
+        );
+        console.log(data);
+      } catch (err) {
+        setErr(err);
+      } finally {
+        setLoading(false);
+      }
+    }
 
-  // const incorrectAnswer = props.selected.map((item) =>
-  //   item.allAnswers.map((answer) => !answer.isCorrect)
-  // );
+    loadQuiz();
+  }, []);
 
   return (
     <div className="quiz--container">
