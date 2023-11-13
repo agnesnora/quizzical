@@ -137,26 +137,55 @@ function App() {
     }
   }
 
-  function selectAnswer(id) {
+  // function selectAnswer(id) {
+  //   setData((prevData) => {
+  //     return prevData.map((item) => ({
+  //       ...item,
+  //       allAnswers: item.allAnswers.map((answer) => {
+  //         return answer.answerId === id
+  //           ? { ...answer, isSelected: !answer.isSelected }
+  //           : { ...answer };
+  //       }),
+  //     }));
+  //   });
+  // }
+  function selectAnswer(questionId, answerId) {
     setData((prevData) => {
-      return prevData.map((item) => ({
-        ...item,
-        allAnswers: item.allAnswers.map((answer) => {
-          return answer.answerId === id
-            ? { ...answer, isSelected: !answer.isSelected }
-            : { ...answer };
-        }),
-      }));
+      return prevData.map((item) => {
+        if (item.questionId === questionId) {
+          return {
+            ...item,
+            allAnswers: item.allAnswers.map((answer) => {
+              return {
+                ...answer,
+                isSelected: answer.answerId === answerId,
+              };
+            }),
+          };
+        } else {
+          return item;
+        }
+      });
     });
   }
 
   const quizComponent = data.map((item) => {
     return (
+      // <Quiz
+      //   key={item.answerId}
+      //   question={item.question}
+      //   answer={item.allAnswers}
+      //   selectAnswer={selectAnswer}
+      //   correctAnswer={item.correct_answer}
+      //   allChecked={allChecked}
+      //   selected={selected}
+      //   checkStyle={checkStyle}
+      // />
       <Quiz
         key={item.answerId}
         question={item.question}
         answer={item.allAnswers}
-        selectAnswer={selectAnswer}
+        selectAnswer={(answerId) => selectAnswer(item.questionId, answerId)}
         correctAnswer={item.correct_answer}
         allChecked={allChecked}
         selected={selected}
