@@ -80,6 +80,7 @@ function App() {
         allAnswers: item.allAnswers.filter((answer) => answer.isSelected),
       }))
     );
+    console.log("setcselected, amikor usefectben data változik", selected);
   }, [data]);
 
   function shuffle(array) {
