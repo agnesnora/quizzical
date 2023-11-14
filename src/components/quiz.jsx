@@ -63,16 +63,25 @@ export default function Quiz(props) {
               style={
                 props.checkStyle
                   ? answer.isCorrect
-                    ? { backgroundColor: "#94D7A2", border: "none" }
+                    ? {
+                        backgroundColor: " #dcf230",
+                        border: "none",
+                        color: "#191F40",
+                      }
                     : !answer.isCorrect && answer.isSelected
                     ? {
-                        backgroundColor: "#F8BCBC",
+                        backgroundColor: "#F23D3D",
                         border: "none",
-                        opacity: "0.5",
+                        // opacity: "0.5",
                       }
-                    : { backgroundColor: "transparent", opacity: "0.5" }
+                    : { backgroundColor: "transparent" }
                   : answer.isSelected
-                  ? { backgroundColor: "#D6DBF5", border: "none" }
+                  ? {
+                      backgroundColor: "#b8c1ec",
+                      fontWeight: "500",
+
+                      color: "#0D0D0D",
+                    }
                   : { backgroundColor: "transparent" }
               }
             >

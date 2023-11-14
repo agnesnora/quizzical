@@ -3,24 +3,19 @@
 }
 
 :root {
-  --primary-color: #0f0e17;
-  --secondary-color: #fffffe;
-  --correct-color: #2cb67d;
-  --incorrect-color: #e53170;
-  --hover: #ff8906;
+  --primary-color: #191f40;
+  --secondary-color: #f1a2f2;
+  --tertiary-color: #f06bf2;
+  --correct-color: #85f296;
+  --incorrect-color: #f23d3d;
+  --hover: #dcf230;
 }
 
 body {
   margin: 0 auto;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-
-  /* font-family: 'Inter', sans-serif; */
   font-family: "Karla", sans-serif;
-
-  /* background-image: url("./blob 5-1.png");
-  background-repeat: no-repeat;
-  background-position: right top; */
 }
 
 .container {
@@ -30,22 +25,21 @@ body {
 }
 
 .start--page {
-  /* margin-top: 10em; */
   text-align: center;
   margin-top: 10em;
 }
 .start--page > h1 {
   font-weight: 700;
   font-size: 2rem;
-  color: #293264;
+  color: #fffffe;
 }
 
 .start--page > h3 {
-  color: #a60f55;
+  color: var(--tertiary-color);
 }
 
 .start--page > p {
-  color: #293264;
+  color: var(--secondary-color);
   font-family: "Inter", sans-serif;
   font-size: 1rem;
 }
@@ -81,7 +75,9 @@ button:hover {
   gap: 0.5em;
   margin: 1em;
 }
-
+.footer > h3 {
+  color: var(--hover);
+}
 .quiz--answer--container > p {
   padding: 10px;
   margin: 20px;
@@ -89,27 +85,28 @@ button:hover {
 
 .quiz--question {
   text-align: left;
-  color: var(--secondary-color);
+  color: #fffffe;
 }
 
 .answer--btn {
   color: var(--secondary-color);
-  border: #4d5b9e solid 1px;
+  border: #fffffe solid 1px;
   border-radius: 8px;
   padding: 0.5em 1.3em;
   margin-top: 0;
   margin-bottom: 1em;
+  color: #fffffe;
 }
 
 hr {
-  color: #dbdef0;
+  color: var(--secondary-color);
+  border: 1px solid;
 }
 
 .playAgain--container,
 .footer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin: 0 auto;
+  text-align: center;
 }
 .check--btn {
   text-align: center;
@@ -119,12 +116,13 @@ hr {
 
 .label--select {
   margin: 0.5em;
-  color: #293264;
+  color: var(--secondary-color);
 }
 
 select {
   margin: 0.5em;
-  color: #a60f55;
+  color: var(--tertiary-color);
+  background-color: #293264;
   border: none;
   padding: 0.5em 0.4em;
   border-radius: 8px;
@@ -158,7 +156,7 @@ select {
   width: 64px;
   height: 64px;
   border: 8px solid;
-  border-color: #a60f55 transparent #293264 transparent;
+  border-color: var(--hover) transparent var(--secondary-color) transparent;
   border-radius: 50%;
   animation: spinning 1.2s linear infinite;
 
@@ -180,5 +178,11 @@ select {
   .quiz--answer--container {
     display: flex;
     justify-content: space-evenly;
+  }
+  .playAgain--container,
+  .footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
   }
 }
