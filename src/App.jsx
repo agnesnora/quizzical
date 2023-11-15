@@ -37,33 +37,62 @@ function App() {
     }
   }, [gameIsOn]);
 
-  function fetchQuizData() {
-    // Rename this function
-    fetch(
-      `https://opentdb.com/api.php?amount=5&difficulty=${difficulty}&type=multiple`
-    )
-      .then((res) => res.json())
-      .then((data) =>
-        setData(
-          data.results.map((item) => ({
-            ...item,
-            allAnswers: shuffle(
-              [...item.incorrect_answers, item.correct_answer].map(
-                (answer) => ({
-                  answer: answer,
-                  answerId: nanoid(),
-                  isSelected: false,
-                  isCorrect: false,
-                  correctAnswer: item.correct_answer,
-                  score: 0,
-                })
-              )
-            ),
-            questionId: nanoid(),
-          }))
-        )
+  async function fetchQuizData() {
+    try {
+      const data = await fetchData(); // Use await here
+
+      setData(
+        data.map((item) => ({
+          ...item,
+          allAnswers: shuffle(
+            [...item.incorrect_answers, item.correct_answer].map((answer) => ({
+              answer: answer,
+              answerId: nanoid(),
+              isSelected: false,
+              isCorrect: false,
+              correctAnswer: item.correct_answer,
+              score: 0,
+            }))
+          ),
+          questionId: nanoid(),
+        }))
       );
+      setDatabaseError(null);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching quiz data:", error);
+      setDatabaseError("Oops! Something went wrong. Please try again later.");
+      // Handle the error, you might want to set an error state or display a message to the user
+    }
   }
+
+  // function fetchQuizData() {
+  // // Rename this function
+  // fetch(
+  // `https://opentdb.com/api.php?amount=5&difficulty=${difficulty}&type=multiple`
+  // )
+  //     .then((res) => res.json())
+  // .then((data) =>
+  //       setData(
+  //       data.results.map((item) => ({
+  //         ...item,
+  //         allAnswers: shuffle(
+  //           [...item.incorrect_answers, item.correct_answer].map(
+  //               (answer) => ({
+  //             answer: answer,
+  //             answerId: nanoid(),
+  //             isSelected: false,
+  //             isCorrect: false,
+  //             correctAnswer: item.correct_answer,
+  //             score: 0,
+  //           })
+  //             )
+  //         ),
+  //         questionId: nanoid(),
+  //       }))
+  //     )
+  //     );
+  // }
 
   useEffect(() => {
     const selectedAnswersArray = selected.map((item) => item.allAnswers);
@@ -118,7 +147,7 @@ function App() {
   useEffect(() => {
     const checkedArray = selected.filter((item) => item.allAnswers.length > 0);
 
-    checkedArray.length === 5 ? setAllChecked(true) : setAllChecked(false);
+    checkedArray.length === 16 ? setAllChecked(true) : setAllChecked(false);
   }, [selected]);
 
   function showCorrectAnswers(e) {
@@ -137,18 +166,6 @@ function App() {
     }
   }
 
-  // function selectAnswer(id) {
-  //   setData((prevData) => {
-  //     return prevData.map((item) => ({
-  //       ...item,
-  //       allAnswers: item.allAnswers.map((answer) => {
-  //         return answer.answerId === id
-  //           ? { ...answer, isSelected: !answer.isSelected }
-  //           : { ...answer };
-  //       }),
-  //     }));
-  //   });
-  // }
   function selectAnswer(questionId, answerId) {
     setData((prevData) => {
       return prevData.map((item) => {
@@ -171,16 +188,6 @@ function App() {
 
   const quizComponent = data.map((item) => {
     return (
-      // <Quiz
-      //   key={item.answerId}
-      //   question={item.question}
-      //   answer={item.allAnswers}
-      //   selectAnswer={selectAnswer}
-      //   correctAnswer={item.correct_answer}
-      //   allChecked={allChecked}
-      //   selected={selected}
-      //   checkStyle={checkStyle}
-      // />
       <Quiz
         key={item.answerId}
         question={item.question}

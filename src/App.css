@@ -16,6 +16,7 @@ body {
   background-color: var(--primary-color);
   color: var(--secondary-color);
   font-family: "Karla", sans-serif;
+  max-width: 1000px;
 }
 
 .container {
@@ -108,6 +109,19 @@ hr {
   margin: 0 auto;
   text-align: center;
 }
+
+.playAgain--container {
+  position: absolute;
+  background-color: var(--tertiary-color);
+  padding: 2em;
+  border-radius: 18px;
+  height: 30%;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
 .check--btn {
   text-align: center;
   display: flex;
@@ -153,16 +167,16 @@ select {
 }
 
 .spinner {
-  width: 64px;
-  height: 64px;
-  border: 8px solid;
+  width: 100px;
+  height: 100px;
+  border: 1rem solid;
   border-color: var(--hover) transparent var(--secondary-color) transparent;
   border-radius: 50%;
   animation: spinning 1.2s linear infinite;
 
   margin: 0 auto;
   text-align: center;
-  top: 50%;
+  top: 70%;
 }
 
 @keyframes spinning {
