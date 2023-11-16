@@ -1,7 +1,10 @@
 * {
   box-sizing: border-box;
 }
-
+/* font-family: 'Barlow', sans-serif;
+font-family: 'Cousine', monospace;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Thasadith', sans-serif; */
 :root {
   --primary-color: #191f40;
   --secondary-color: #f1a2f2;
@@ -17,26 +20,27 @@ body {
   color: var(--secondary-color);
   font-family: "Karla", sans-serif;
   max-width: 1000px;
+  font-family: "Barlow", sans-serif;
 }
 
 .container {
   min-height: 100vh;
 
-  padding-top: 5em;
+  padding-top: 3em;
 }
 
 .start--page {
-  text-align: center;
-  margin-top: 10em;
-}
-.start--page > h1 {
-  font-weight: 700;
-  font-size: 2rem;
-  color: #fffffe;
+  text-align: right;
+  margin-top: 2em;
+  margin-right: 2em;
 }
 
 .start--page > h3 {
-  color: var(--tertiary-color);
+  color: #f5f7fb;
+  font-family: "Thasadith", sans-serif;
+  text-align: left;
+  margin-left: 1em;
+  margin-top: 0;
 }
 
 .start--page > p {
@@ -44,7 +48,31 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
 }
+.start--btn {
+  padding-left: 3em;
+  margin-left: 3em;
+  margin-right: 0;
 
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.start--btn > button {
+  border-radius: 0;
+  color: #f06bf2;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  cursor: pointer;
+}
+
+.start--btn:hover {
+  background-color: #dcf230;
+}
 button {
   border-radius: 15px;
   background-color: #4d5b9e;
@@ -93,7 +121,8 @@ button:hover {
 
 .quiz--question {
   text-align: left;
-  color: #fffffe;
+  color: #f1a2f2;
+  font-family: "Cousine", monospace;
 }
 
 .answer--btn {
@@ -104,8 +133,18 @@ button:hover {
   margin-top: 0;
   margin-bottom: 1em;
   color: #fffffe;
+  font-family: "Cousine", monospace;
 }
-
+.logo {
+  text-align: right;
+  margin-right: 2em;
+  margin-top: 0;
+  color: #f06bf2;
+  background-color: #4d5b9e;
+  display: block;
+  font-family: "Luckiest Guy", cursive;
+  padding: 0.5em 0.2em;
+}
 hr {
   color: var(--secondary-color);
   border: 1px solid;

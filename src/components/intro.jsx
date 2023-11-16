@@ -9,9 +9,8 @@ export default function Intro(props) {
   }
   return (
     <div className="start--page">
-      <h1>Quizzical</h1>
       <h3>Fun game by Open Trivia Database</h3>
-      <div className="select--difficulty">
+      {/* <div className="select--difficulty">
         <label className="label--select" htmlFor="difficulty">
           Set difficulty
         </label>
@@ -25,11 +24,11 @@ export default function Intro(props) {
           <option value="medium">Medium</option>
           <option value="medium">Hard</option>
         </select>
+      </div> */}
+      <div className="start--btn">
+        <button onClick={props.startgame}> Start quiz</button>
       </div>
 
-      <button className="start--btn" onClick={props.startgame}>
-        Start quiz
-      </button>
       {/* {!props.loading ? (
 <div></div>
 ) : (

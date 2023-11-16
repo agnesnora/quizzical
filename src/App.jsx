@@ -178,6 +178,7 @@ function App() {
   return (
     <>
       <div className="container">
+        <h1 className="logo">Quizzical</h1>
         {!gameOn && (
           <Intro
             startgame={startGame}
