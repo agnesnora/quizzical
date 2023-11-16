@@ -23,7 +23,7 @@ export async function fetchData() {
     "https://opentdb.com/api.php?amount=8&difficulty=easy&type=multiple"
   );
   const data = await res.json();
-  console.log(data.results);
+
   return data.results;
 }
 
@@ -98,8 +98,6 @@ const mockResponse = {
       correct_answer: "Nile",
       incorrect_answers: ["Amazon", "Yangtze", "Mississippi"],
     },
-
-    // Add more mock questions here...
   ],
 };
 export { mockResponse };

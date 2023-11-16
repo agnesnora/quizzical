@@ -7,7 +7,7 @@ import Footer from "../src/components/footer";
 import Intro from "../src/components/intro";
 import { nanoid } from "nanoid";
 import { mockResponse } from "./utilities";
-
+import { shuffle } from "./utilities";
 import { fetchData } from "./utilities";
 
 function App() {
@@ -25,22 +25,24 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   useEffect(() => {
-    setData(
-      mockResponse.results.map((item) => ({
-        ...item,
-        allAnswers: shuffle(
-          [...item.incorrect_answers, item.correct_answer].map((answer) => ({
-            answer: answer,
-            answerId: nanoid(),
-            isSelected: false,
-            isCorrect: false,
-            correctAnswer: item.correct_answer,
-            score: 0,
-          }))
-        ),
-        questionId: nanoid(),
-      }))
-    );
+    if (error) {
+      setData(
+        mockResponse.results.map((item) => ({
+          ...item,
+          allAnswers: shuffle(
+            [...item.incorrect_answers, item.correct_answer].map((answer) => ({
+              answer: answer,
+              answerId: nanoid(),
+              isSelected: false,
+              isCorrect: false,
+              correctAnswer: item.correct_answer,
+              score: 0,
+            }))
+          ),
+          questionId: nanoid(),
+        }))
+      );
+    }
   }, [error]);
   useEffect(() => {
     if (gameOn) {
@@ -50,13 +52,17 @@ function App() {
         setLoading(false);
       }, 2000);
       setTimeout(() => {
-        fetchQuizData(); // Rename the function to avoid naming conflict
+        fetchQuizData();
       }, 2000);
     }
   }, [gameIsOn]);
 
   async function fetchQuizData() {
     try {
+      // if (Math.random() < 0.5) {
+      //   throw new Error("Simulated error: Invalid API endpoint");
+      // }
+
       const data = await fetchData(); // Use await here
 
       setData(
@@ -75,12 +81,9 @@ function App() {
           questionId: nanoid(),
         }))
       );
-
-      console.log(data);
     } catch (error) {
       console.error("Error fetching quiz data:", error);
       setError(error.message);
-      console.log("Setting mock data");
     } finally {
       setLoading(false);
     }
@@ -101,28 +104,7 @@ function App() {
         allAnswers: item.allAnswers.filter((answer) => answer.isSelected),
       }))
     );
-    console.log("setcselected, amikor usefectben data változik", selected);
   }, [data]);
-
-  function shuffle(array) {
-    let currentIndex = array.length,
-      randomIndex;
-
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
-      // Pick a remaining element.
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
-
-    return array;
-  }
 
   function startGame() {
     setGameOn(true);
@@ -210,8 +192,17 @@ function App() {
             <div className="spinner-container">
               <div className="spinner"></div>
             </div>
+          ) : gameOn && error ? (
+            <div>
+              <h3 className="error-message">
+                We apologize for the inconvenience, but there seems to be an
+                issue with the API. However, we have prepared mock data for you
+                to experience our game.
+              </h3>
+              {quizComponent}
+            </div>
           ) : (
-            gameOn && quizComponent
+            gameOn && !error && quizComponent
           )}
         </>
 
