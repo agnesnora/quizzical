@@ -6,6 +6,7 @@ import Quiz from "../src/components/quiz";
 import Footer from "../src/components/footer";
 import Intro from "../src/components/intro";
 import { nanoid } from "nanoid";
+import { mockResponse } from "./utilities";
 
 import { fetchData } from "./utilities";
 
@@ -22,8 +23,25 @@ function App() {
   const [difficulty, setDifficulty] = useState("easy");
   const gameIsOn = gameOn ? true : false;
   const [loading, setLoading] = useState(false);
-  const [markedAnswer, setMarkedAnswer] = useState(false);
-
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    setData(
+      mockResponse.results.map((item) => ({
+        ...item,
+        allAnswers: shuffle(
+          [...item.incorrect_answers, item.correct_answer].map((answer) => ({
+            answer: answer,
+            answerId: nanoid(),
+            isSelected: false,
+            isCorrect: false,
+            correctAnswer: item.correct_answer,
+            score: 0,
+          }))
+        ),
+        questionId: nanoid(),
+      }))
+    );
+  }, [error]);
   useEffect(() => {
     if (gameOn) {
       setSelected([]);
@@ -57,42 +75,16 @@ function App() {
           questionId: nanoid(),
         }))
       );
-      setDatabaseError(null);
+
       console.log(data);
     } catch (error) {
       console.error("Error fetching quiz data:", error);
-      setDatabaseError("Oops! Something went wrong. Please try again later.");
-      // Handle the error, you might want to set an error state or display a message to the user
+      setError(error.message);
+      console.log("Setting mock data");
+    } finally {
+      setLoading(false);
     }
   }
-
-  // function fetchQuizData() {
-  // // Rename this function
-  // fetch(
-  // `https://opentdb.com/api.php?amount=5&difficulty=${difficulty}&type=multiple`
-  // )
-  //     .then((res) => res.json())
-  // .then((data) =>
-  //       setData(
-  //       data.results.map((item) => ({
-  //         ...item,
-  //         allAnswers: shuffle(
-  //           [...item.incorrect_answers, item.correct_answer].map(
-  //               (answer) => ({
-  //             answer: answer,
-  //             answerId: nanoid(),
-  //             isSelected: false,
-  //             isCorrect: false,
-  //             correctAnswer: item.correct_answer,
-  //             score: 0,
-  //           })
-  //             )
-  //         ),
-  //         questionId: nanoid(),
-  //       }))
-  //     )
-  //     );
-  // }
 
   useEffect(() => {
     const selectedAnswersArray = selected.map((item) => item.allAnswers);
@@ -147,7 +139,7 @@ function App() {
   useEffect(() => {
     const checkedArray = selected.filter((item) => item.allAnswers.length > 0);
 
-    checkedArray.length === 16 ? setAllChecked(true) : setAllChecked(false);
+    checkedArray.length === 8 ? setAllChecked(true) : setAllChecked(false);
   }, [selected]);
 
   function showCorrectAnswers(e) {
