@@ -59,21 +59,6 @@ body {
   justify-content: flex-end;
 }
 
-.start--btn > button {
-  border-radius: 0;
-  color: #f06bf2;
-  font-weight: 400;
-  text-transform: uppercase;
-  font-family: "Luckiest Guy", cursive;
-  font-size: 1.2em;
-  padding-top: 1em;
-  padding-bottom: 1em;
-  cursor: pointer;
-}
-
-.start--btn > button:hover {
-  background-color: #dcf230;
-}
 button {
   border-radius: 15px;
   background-color: #4d5b9e;
@@ -87,10 +72,40 @@ button {
   transition-delay: 0.2s;
   cursor: pointer;
 }
-button:hover {
-  background-color: #dcf230;
-  color: #f06bf2;
+.answer--btn {
+  border: #fffffe solid 1px;
+  border-radius: 8px;
+  padding: 0.5em 1.3em;
+  margin-top: 0;
+  margin-bottom: 1em;
+  color: #fffffe;
+  font-family: "Cousine", monospace;
 }
+button:hover {
+  background-color: #f1a2f2;
+  color: #191f40;
+}
+.start--btn > button {
+  border-radius: 0;
+  color: #f06bf2;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.2em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  cursor: pointer;
+}
+.start--btn > button:hover {
+  background-color: #dcf230;
+}
+
+.answer--container > button:hover {
+  color: #dcf230;
+
+  font-weight: 600;
+}
+
 .error-message {
   background-color: #293264;
   color: #f06bf2;
@@ -106,6 +121,7 @@ button:hover {
   font-size: 1.1rem;
   margin-top: 0;
   text-align: center;
+  margin: 0 auto 2em;
 }
 .quiz--container {
   margin: 2em 2em;
@@ -135,16 +151,6 @@ button:hover {
   font-family: "Cousine", monospace;
 }
 
-.answer--btn {
-  color: var(--secondary-color);
-  border: #fffffe solid 1px;
-  border-radius: 8px;
-  padding: 0.5em 1.3em;
-  margin-top: 0;
-  margin-bottom: 1em;
-  color: #fffffe;
-  font-family: "Cousine", monospace;
-}
 .logo {
   text-align: right;
   margin-right: 2em;
@@ -167,16 +173,24 @@ hr {
 }
 
 .playAgain--container {
-  position: absolute;
-  background-color: var(--tertiary-color);
-  padding: 2em;
+  background-color: #4d5b9e;
+  padding: 0.2em;
   border-radius: 18px;
   height: 30%;
   width: 90%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  margin-bottom: 1.8em;
+}
+
+.playAgain--container > button {
+  background-color: #f06bf2;
+  text-transform: uppercase;
+  font-family: "Cousine", monospace;
+  font-weight: 600;
+  margin: 0 auto 1em;
+}
+
+.playAgain--container > button:hover {
+  background-color: #191f40;
 }
 .check--btn {
   text-align: center;
@@ -196,12 +210,6 @@ select {
   border: none;
   padding: 0.5em 0.4em;
   border-radius: 8px;
-}
-.footer--background {
-  /* background-image: url("../src/blob.png");
-  background-repeat: no-repeat;
-  padding: 5em 0;
-  background-position: left bottom; */
 }
 
 .loader-container {
