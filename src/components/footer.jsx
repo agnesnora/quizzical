@@ -29,7 +29,7 @@ export default function Footer(props) {
         Play again
       </button>
       {scoredAnswerArray.length >= 4 ? (
-        <Confetti width={800} height={2100} numberOfPieces={500} />
+        <Confetti width={2000} height={1800} numberOfPieces={500} />
       ) : null}
     </div>
   ) : (

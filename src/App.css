@@ -83,7 +83,7 @@ button {
 }
 button:hover {
   background-color: #f1a2f2;
-  color: #191f40;
+  color: #f1a2f2;
 }
 .start--btn > button {
   border-radius: 0;
@@ -262,5 +262,25 @@ select {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    padding: 2em;
+    width: 100%;
+  }
+  .footer > h3 {
+    margin: 0 auto;
+  }
+  .footer > button {
+    margin-bottom: 0;
+  }
+  .start--btn {
+    margin-left: 0;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+  .start--btn > button {
+    text-align: left;
+
+    background-color: #191f40;
+    border: 1px solid #f06bf2;
+    border-radius: 18px;
   }
 }
