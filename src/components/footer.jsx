@@ -1,3 +1,4 @@
+import Confetti from "react-confetti";
 export default function Footer(props) {
   const checkAnswerArray = props.selected.map((item) => ({
     ...item,
@@ -27,6 +28,9 @@ export default function Footer(props) {
       <button data-play="play" onClick={props.playAgain}>
         Play again
       </button>
+      {scoredAnswerArray.length >= 4 ? (
+        <Confetti width={800} height={2100} numberOfPieces={500} />
+      ) : null}
     </div>
   ) : (
     <div className="footer footer--background"></div>
