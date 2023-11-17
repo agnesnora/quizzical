@@ -37,10 +37,11 @@ body {
 
 .start--page > h3 {
   color: #f5f7fb;
-  font-family: "Thasadith", sans-serif;
+  font-family: "Cousine", monospace;
   text-align: left;
   margin-left: 1em;
   margin-top: 0;
+  width: 50%;
 }
 
 .start--page > p {
@@ -70,7 +71,7 @@ body {
   cursor: pointer;
 }
 
-.start--btn:hover {
+.start--btn > button:hover {
   background-color: #dcf230;
 }
 button {
@@ -84,6 +85,11 @@ button {
   margin-top: 1.5em;
   transition: all 0.5s;
   transition-delay: 0.2s;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #dcf230;
+  color: #f06bf2;
 }
 .error-message {
   background-color: #293264;
@@ -93,9 +99,13 @@ button {
   width: 80%;
   margin: auto;
 }
-button:hover {
-  color: var(--primary-color);
-  background-color: var(--hover);
+.check--btn {
+  font-family: "Cousine", monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-top: 0;
+  text-align: center;
 }
 .quiz--container {
   margin: 2em 2em;

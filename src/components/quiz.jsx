@@ -54,6 +54,7 @@ export default function Quiz(props) {
           <div
             onClick={(e) => props.selectAnswer(answer.answerId)}
             data-id={answer.answerId}
+            className="answer--container"
           >
             <button
               key={answer.answerId}
