@@ -31,8 +31,13 @@ body {
 
 .start--page {
   text-align: right;
-  margin-top: 2em;
+  padding-top: 3em;
+  /* margin-top: 2em; */
   margin-right: 2em;
+  background-image: url("/confetti.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
 }
 
 .start--page > h3 {
@@ -40,8 +45,8 @@ body {
   font-family: "Cousine", monospace;
   text-align: left;
   margin-left: 1em;
-  margin-top: 0;
-  width: 50%;
+  margin-top: 60%;
+  width: 70%;
 }
 
 .start--page > p {
@@ -83,10 +88,13 @@ button {
 }
 button:hover {
   background-color: #f1a2f2;
-  color: #f1a2f2;
+  color: #4d5b9e;
 }
 .start--btn > button {
-  border-radius: 0;
+  border: 1px solid #f06bf2;
+  border-radius: 18px;
+  background-color: transparent;
+  margin-right: 1.5rem;
   color: #f06bf2;
   font-weight: 400;
   text-transform: uppercase;
@@ -97,7 +105,7 @@ button:hover {
   cursor: pointer;
 }
 .start--btn > button:hover {
-  background-color: #dcf230;
+  background-color: #4d5b9e;
 }
 
 .answer--container > button:hover {
@@ -153,13 +161,14 @@ button:hover {
 
 .logo {
   text-align: right;
-  margin-right: 2em;
+  margin-right: 0;
   margin-top: 0;
+  margin-bottom: 0;
   color: #f06bf2;
   background-color: #4d5b9e;
   display: block;
   font-family: "Luckiest Guy", cursive;
-  padding: 0.5em 0.2em;
+  padding: 0.5em 2em;
 }
 hr {
   color: var(--secondary-color);
@@ -190,7 +199,9 @@ hr {
 }
 
 .playAgain--container > button:hover {
-  background-color: #191f40;
+  background-color: #f1a2f2;
+  font-size: 1em;
+  color: #293264;
 }
 .check--btn {
   text-align: center;
@@ -282,5 +293,10 @@ select {
     background-color: #191f40;
     border: 1px solid #f06bf2;
     border-radius: 18px;
+    margin-left: 1rem;
+    margin-top: 0.5em;
+  }
+  .start--page > h3 {
+    margin-top: 50%;
   }
 }
