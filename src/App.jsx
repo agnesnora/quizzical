@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import "./App.css";
+import "../src/styles/app/app.css";
 import { decode } from "html-entities";
 import Quiz from "../src/components/quiz";
 import Footer from "../src/components/footer";

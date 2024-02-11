@@ -2,7 +2,7 @@ import { decode } from "html-entities";
 import { nanoid } from "nanoid";
 import { useState, useEffect } from "react";
 import { fetchData, shuffle } from "../utilities";
-
+import "../styles/quiz/quiz.css";
 export default function Quiz(props) {
   const [gameOn, setGameOn] = useState(false);
   const [quizData, setQuizData] = useState([]);
