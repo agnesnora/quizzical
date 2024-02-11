@@ -1,4 +1,5 @@
 import Confetti from "react-confetti";
+import "../styles/footer/footer.css";
 export default function Footer(props) {
   const checkAnswerArray = props.selected.map((item) => ({
     ...item,

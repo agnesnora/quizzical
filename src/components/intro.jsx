@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../styles/intro/intro.css";
 export default function Intro(props) {
   const [difficulty, setDifficulty] = useState("easy");
   console.log(difficulty);

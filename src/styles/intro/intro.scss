@@ -1,0 +1,64 @@
+.start--page {
+  text-align: right;
+  padding-top: 3em;
+
+  margin-right: 2em;
+  background-image: url("/confetti.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  h3 {
+    color: #f5f7fb;
+    font-family: "Cousine", monospace;
+    text-align: left;
+    margin-left: 1em;
+    margin-top: 60%;
+    width: 70%;
+  }
+  .start--btn {
+    padding-left: 3em;
+    margin-left: 3em;
+    margin-right: 0;
+
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    button {
+      border: 1px solid #f06bf2;
+      border-radius: 18px;
+      background-color: transparent;
+      margin-right: 1.5rem;
+      color: #f06bf2;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-family: "Luckiest Guy", cursive;
+      font-size: 1.2em;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      cursor: pointer;
+      &:hover {
+        background-color: #4d5b9e;
+      }
+    }
+  }
+}
+
+@media (min-width: 550px) {
+  .start--btn {
+    margin-left: 0;
+    justify-content: flex-start;
+    padding-left: 0;
+    button {
+      text-align: left;
+
+      background-color: #191f40;
+      border: 1px solid #f06bf2;
+      border-radius: 18px;
+      margin: 0.5em 1em;
+    }
+  }
+
+  .start--page > h3 {
+    margin-top: 50%;
+  }
+}

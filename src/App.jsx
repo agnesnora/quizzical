@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Confetti from "react-confetti";
+
 import "./App.css";
 import { decode } from "html-entities";
 import Quiz from "../src/components/quiz";

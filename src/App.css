@@ -29,10 +29,10 @@ body {
   padding-top: 3em;
 }
 
-.start--page {
+/* .start--page {
   text-align: right;
   padding-top: 3em;
-  /* margin-top: 2em; */
+ 
   margin-right: 2em;
   background-image: url("/confetti.png");
   background-size: cover;
@@ -62,7 +62,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-}
+} */
 
 button {
   border-radius: 15px;
@@ -90,7 +90,7 @@ button:hover {
   background-color: #f1a2f2;
   color: #4d5b9e;
 }
-.start--btn > button {
+/* .start--btn > button {
   border: 1px solid #f06bf2;
   border-radius: 18px;
   background-color: transparent;
@@ -106,7 +106,7 @@ button:hover {
 }
 .start--btn > button:hover {
   background-color: #4d5b9e;
-}
+} */
 
 .answer--container > button:hover {
   color: #dcf230;
@@ -122,7 +122,7 @@ button:hover {
   width: 80%;
   margin: auto;
 }
-.check--btn {
+/* .check--btn {
   font-family: "Cousine", monospace;
   font-weight: 600;
   text-transform: uppercase;
@@ -130,7 +130,7 @@ button:hover {
   margin-top: 0;
   text-align: center;
   margin: 0 auto 2em;
-}
+} */
 .quiz--container {
   margin: 2em 2em;
 }
@@ -145,9 +145,9 @@ button:hover {
   gap: 0.5em;
   margin: 1em;
 }
-.footer > h3 {
+/* .footer > h3 {
   color: var(--hover);
-}
+} */
 .quiz--answer--container > p {
   padding: 10px;
   margin: 20px;
@@ -174,14 +174,14 @@ hr {
   color: var(--secondary-color);
   border: 1px solid;
 }
-
+/* 
 .playAgain--container,
 .footer {
   margin: 0 auto;
   text-align: center;
-}
+} */
 
-.playAgain--container {
+/* .playAgain--container {
   background-color: #4d5b9e;
   padding: 0.2em;
   border-radius: 18px;
@@ -202,12 +202,12 @@ hr {
   background-color: #f1a2f2;
   font-size: 1em;
   color: #293264;
-}
-.check--btn {
+} */
+/* .check--btn {
   text-align: center;
   display: flex;
   justify-content: center;
-}
+} */
 
 .label--select {
   margin: 0.5em;
@@ -268,7 +268,7 @@ select {
     display: flex;
     justify-content: space-evenly;
   }
-  .playAgain--container,
+  /* .playAgain--container,
   .footer {
     display: flex;
     justify-content: space-evenly;
@@ -281,8 +281,8 @@ select {
   }
   .footer > button {
     margin-bottom: 0;
-  }
-  .start--btn {
+  } */
+  /* .start--btn {
     margin-left: 0;
     justify-content: flex-start;
     padding-left: 0;
@@ -298,5 +298,5 @@ select {
   }
   .start--page > h3 {
     margin-top: 50%;
-  }
+  } */
 }

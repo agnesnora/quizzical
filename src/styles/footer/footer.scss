@@ -1,0 +1,59 @@
+.playAgain--container,
+.footer {
+  margin: 0 auto;
+  text-align: center;
+}
+.playAgain--container {
+  background-color: #4d5b9e;
+  padding: 0.2em;
+  border-radius: 18px;
+  height: 30%;
+  width: 90%;
+  margin-bottom: 1.8em;
+  h3 {
+    color: var(--hover);
+  }
+  button {
+    background-color: #f06bf2;
+    text-transform: uppercase;
+    font-family: "Cousine", monospace;
+    font-weight: 600;
+    margin: 0 auto 1em;
+
+    &:hover {
+      background-color: #f1a2f2;
+      font-size: 1em;
+      color: #293264;
+    }
+  }
+}
+
+.check--btn {
+  font-family: "Cousine", monospace;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  margin-top: 0;
+  text-align: center;
+  margin: 0 auto 2em;
+
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 550px) {
+  .playAgain--container,
+  .footer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2em;
+    width: 100%;
+    h3 {
+      margin: 0 auto;
+    }
+    button {
+      margin-bottom: 0;
+    }
+  }
+}
