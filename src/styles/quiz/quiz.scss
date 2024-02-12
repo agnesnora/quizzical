@@ -1,8 +1,10 @@
+@import "../variables/variables.scss/";
+
 .quiz--container {
   margin: 2em 2em;
   .quiz--question {
     text-align: left;
-    color: #f1a2f2;
+    color: $secondary-color;
     font-family: "Cousine", monospace;
   }
   .quiz--answer--container {
@@ -11,7 +13,7 @@
     gap: 0.5em;
     margin: 1em;
     .answer--container > button:hover {
-      color: #dcf230;
+      color: $hover;
 
       font-weight: 600;
     }
@@ -27,7 +29,7 @@
   font-family: "Cousine", monospace;
 }
 hr {
-  color: var(--secondary-color);
+  color: $secondary-color;
   border: 1px solid;
 }
 @media (min-width: 550px) {

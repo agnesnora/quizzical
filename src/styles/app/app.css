@@ -2,19 +2,10 @@
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #191f40;
-  --secondary-color: #f1a2f2;
-  --tertiary-color: #f06bf2;
-  --correct-color: #85f296;
-  --incorrect-color: #f23d3d;
-  --hover: #dcf230;
-}
-
 body {
   margin: 0 auto;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: #191f40;
+  color: #f1a2f2;
   font-family: "Karla", sans-serif;
   max-width: 1000px;
   font-family: "Barlow", sans-serif;
@@ -85,7 +76,7 @@ button:hover {
   width: 100px;
   height: 100px;
   border: 1rem solid;
-  border-color: var(--hover) transparent var(--secondary-color) transparent;
+  border-color: #dcf230 transparent #f1a2f2 transparent;
   border-radius: 50%;
   animation: spinning 1.2s linear infinite;
   margin: 0 auto;

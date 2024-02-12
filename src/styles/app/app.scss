@@ -1,20 +1,12 @@
+@import "../variables/variables.scss";
 * {
   box-sizing: border-box;
 }
 
-:root {
-  --primary-color: #191f40;
-  --secondary-color: #f1a2f2;
-  --tertiary-color: #f06bf2;
-  --correct-color: #85f296;
-  --incorrect-color: #f23d3d;
-  --hover: #dcf230;
-}
-
 body {
   margin: 0 auto;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: $primary-color;
+  color: $secondary-color;
   font-family: "Karla", sans-serif;
   max-width: 1000px;
   font-family: "Barlow", sans-serif;
@@ -29,7 +21,7 @@ body {
     margin-right: 0;
     margin-top: 0;
     margin-bottom: 0;
-    color: #f06bf2;
+    color: $tertiary-color;
     background-color: #4d5b9e;
     display: block;
     font-family: "Luckiest Guy", cursive;
@@ -52,13 +44,13 @@ button {
 }
 
 button:hover {
-  background-color: #f1a2f2;
+  background-color: $secondary-color;
   color: #4d5b9e;
 }
 
 .error-message {
   background-color: #293264;
-  color: #f06bf2;
+  color: $tertiary-color;
   padding: 2em;
   border-radius: 8px;
   width: 80%;
@@ -85,7 +77,7 @@ button:hover {
     width: 100px;
     height: 100px;
     border: 1rem solid;
-    border-color: var(--hover) transparent var(--secondary-color) transparent;
+    border-color: $hover transparent $secondary-color transparent;
     border-radius: 50%;
     animation: spinning 1.2s linear infinite;
 

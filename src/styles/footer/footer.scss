@@ -1,3 +1,5 @@
+@import "../variables/variables.scss";
+
 .playAgain--container,
 .footer {
   margin: 0 auto;
@@ -11,17 +13,17 @@
   width: 90%;
   margin-bottom: 1.8em;
   h3 {
-    color: var(--hover);
+    color: $hover;
   }
   button {
-    background-color: #f06bf2;
+    background-color: $tertiary-color;
     text-transform: uppercase;
     font-family: "Cousine", monospace;
     font-weight: 600;
     margin: 0 auto 1em;
 
     &:hover {
-      background-color: #f1a2f2;
+      background-color: $secondary-color;
       font-size: 1em;
       color: #293264;
     }

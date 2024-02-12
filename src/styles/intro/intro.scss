@@ -1,3 +1,5 @@
+@import "../variables/variables.scss";
+
 .start--page {
   text-align: right;
   padding-top: 3em;
@@ -24,11 +26,11 @@
     display: flex;
     justify-content: flex-end;
     button {
-      border: 1px solid #f06bf2;
+      border: 1px solid $tertiary-color;
       border-radius: 18px;
       background-color: transparent;
       margin-right: 1.5rem;
-      color: #f06bf2;
+      color: $tertiary-color;
       font-weight: 400;
       text-transform: uppercase;
       font-family: "Luckiest Guy", cursive;
@@ -51,8 +53,8 @@
     button {
       text-align: left;
 
-      background-color: #191f40;
-      border: 1px solid #f06bf2;
+      background-color: $primary-color;
+      border: 1px solid $tertiary-color;
       border-radius: 18px;
       margin: 0.5em 1em;
     }
